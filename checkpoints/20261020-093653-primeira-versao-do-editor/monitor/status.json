@@ -1,0 +1,122 @@
+{
+  "updated_at": "2026-10-20T09:34:13-03:00",
+  "project_state": "funcionando",
+  "state_reason": "",
+  "stage": "Validação",
+  "stage_detail": "Motores testados. A janela está sendo aberta para conferir o fluxo.",
+  "agents": {
+    "orquestrador": {
+      "state": "ativo",
+      "activity": "Coordena a validação da primeira versão."
+    },
+    "pesquisador": {
+      "state": "aguardando",
+      "activity": "Pesquisa pública gravada em docs/01-pesquisa.md."
+    },
+    "construtor": {
+      "state": "aguardando",
+      "activity": "Plano gravado em docs/02-planejamento.md."
+    },
+    "executor": {
+      "state": "ativo",
+      "activity": "Ajusta a interface com o que a captura mostrar."
+    },
+    "validador": {
+      "state": "ativo",
+      "activity": "Abre a janela, separa uma arte de teste e confere o alfa binário."
+    }
+  },
+  "tasks": [
+    {
+      "id": "monitor",
+      "title": "Monitor visual lendo registro real",
+      "status": "em_andamento",
+      "note": ""
+    },
+    {
+      "id": "regras",
+      "title": "Regras e sistema de checkpoint",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "pesquisa",
+      "title": "Pesquisa pública do DTX Live",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "mapa",
+      "title": "Mapa de interface só com o que foi visto",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "plano",
+      "title": "Planejamento da árvore de motores",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "motores",
+      "title": "Motores próprios de separação e retícula 20–45 LPI",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "interface",
+      "title": "Interface do editor",
+      "status": "em_andamento",
+      "note": ""
+    },
+    {
+      "id": "dtx",
+      "title": "Arquivo de projeto próprio .dtx",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "testes",
+      "title": "Testes automáticos dos motores e da janela",
+      "status": "em_andamento",
+      "note": ""
+    },
+    {
+      "id": "validacao",
+      "title": "Validação abrindo o aplicativo",
+      "status": "em_andamento",
+      "note": ""
+    },
+    {
+      "id": "ai",
+      "title": "AI Upscaler",
+      "status": "bloqueada",
+      "note": "Serviço com créditos do site original. Sem motor público para reproduzir."
+    },
+    {
+      "id": "gang",
+      "title": "Gang Sheet Builder",
+      "status": "bloqueada",
+      "note": "A página descreve Auto Build, quantidade e rotação. A tela e a medida do filme não foram publicadas."
+    },
+    {
+      "id": "dtx-original",
+      "title": "Abrir o .dtx proprietário",
+      "status": "bloqueada",
+      "note": "O formato interno do arquivo original não foi publicado."
+    },
+    {
+      "id": "lado-a-lado",
+      "title": "Comparar resultado com o app original no mesmo arquivo",
+      "status": "bloqueada",
+      "note": "Sem acesso ao aplicativo. Falta captura ou arquivo de teste processado lá."
+    }
+  ],
+  "checkpoint": {
+    "id": "",
+    "stage": "",
+    "at": "",
+    "path": ""
+  },
+  "blockers": []
+}
