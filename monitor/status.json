@@ -1,0 +1,140 @@
+{
+  "updated_at": "2026-10-20T15:01:44-03:00",
+  "project_state": "funcionando",
+  "state_reason": "",
+  "stage": "Tom pela pesquisa pública",
+  "stage_detail": "A pesquisa está em rag/base/pesquisa-publica-reticula.md. Cor opaca e viva fica contínua. Alfa parcial e cinza em rampa viram ponto. 13 testes de motor passaram. Degradê opaco entre cores vivas permanece contínuo, como na fonte DTF pública. A suavização da janela continua só no plano.",
+  "agents": {
+    "orquestrador": {
+      "state": "aguardando",
+      "activity": "Método público escolhido e aplicado no motor de tom. A suavização da janela ainda não começou."
+    },
+    "pesquisador": {
+      "state": "aguardando",
+      "activity": "Pesquisa DTF registrada. A fórmula do aplicativo de referência continua sem publicação."
+    },
+    "construtor": {
+      "state": "aguardando",
+      "activity": "Motor de tom separado da presença. A interface não foi redesenhada."
+    },
+    "executor": {
+      "state": "aguardando",
+      "activity": "Tom novo no motor central. Editor reaberto com esse código."
+    },
+    "validador": {
+      "state": "aguardando",
+      "activity": "13 testes de motor passaram no chapado, na fumaça parcial e no cinza em rampa."
+    }
+  },
+  "tasks": [
+    {
+      "id": "monitor",
+      "title": "Monitor visual lendo registro real",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "regras",
+      "title": "Regras e sistema de checkpoint",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "pesquisa",
+      "title": "Pesquisa pública do DTX Live",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "mapa",
+      "title": "Mapa de interface só com o que foi visto",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "plano",
+      "title": "Planejamento da árvore de motores",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "motores",
+      "title": "Motores próprios de separação e retícula 20–45 LPI",
+      "status": "concluida",
+      "note": "Presença, tom, retícula 20–45, base e PNG. Prova automática, sem comparação com o aplicativo original."
+    },
+    {
+      "id": "interface",
+      "title": "Interface do editor",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "dtx",
+      "title": "Arquivo de projeto próprio .dtx",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "testes",
+      "title": "Testes automáticos dos motores e da janela",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "validacao",
+      "title": "Validação abrindo o aplicativo",
+      "status": "concluida",
+      "note": ""
+    },
+    {
+      "id": "ai",
+      "title": "AI Upscaler",
+      "status": "bloqueada",
+      "note": "Serviço com créditos do site original. Sem motor público para reproduzir."
+    },
+    {
+      "id": "gang",
+      "title": "Gang Sheet Builder",
+      "status": "bloqueada",
+      "note": "A página descreve Auto Build, quantidade e rotação. A tela e a medida do filme não foram publicadas."
+    },
+    {
+      "id": "dtx-original",
+      "title": "Abrir o .dtx proprietário",
+      "status": "bloqueada",
+      "note": "O formato interno do arquivo original não foi publicado."
+    },
+    {
+      "id": "lado-a-lado",
+      "title": "Comparar resultado com o app original no mesmo arquivo",
+      "status": "bloqueada",
+      "note": "Sem acesso ao aplicativo. Falta captura ou arquivo de teste processado lá."
+    },
+    {
+      "id": "rag",
+      "title": "RAG dos agentes para a estrutura de criação",
+      "status": "concluida",
+      "note": "Consulta local BM25 com registro em rag/consultas."
+    },
+    {
+      "id": "motor-finalidade",
+      "title": "Lógica do motor alinhada à finalidade DTF têxtil",
+      "status": "concluida",
+      "note": "Chapado vivo contínuo. Alfa parcial e cinza em rampa viram ponto. Degradê vivo opaco fica contínuo."
+    },
+    {
+      "id": "traducao",
+      "title": "Interface e navegação em português do Brasil",
+      "status": "concluida",
+      "note": "Rótulos, menus, vistas, diálogos e avisos no vocabulário de serigrafia e DTF."
+    }
+  ],
+  "checkpoint": {
+    "id": "20261020-150011-antes-do-tom-pela-pesquisa-publica",
+    "stage": "Antes do tom pela pesquisa publica",
+    "at": "2026-10-20T15:00:11-03:00",
+    "path": "checkpoints/20261020-150011-antes-do-tom-pela-pesquisa-publica"
+  },
+  "blockers": []
+}
