@@ -52,10 +52,17 @@ lpiInput.addEventListener('change',updatePreview);
 shapeInput.addEventListener('change',updatePreview);
 
 const knockoutImage=document.getElementById('knockout-image');
+// Preferimos o estudo visual documentado no projeto às amostras geométricas antigas.
+knockoutImage.src='assets/study-30-circle.png';
+knockoutImage.alt='Arte DTF do estudo com retícula de 30 LPI e transparência';
+const knockoutNote=document.querySelector('#knockout-visual + .card-copy .card-note');
+if(knockoutNote)knockoutNote.textContent='ESTUDO VISUAL COM ALFA TRANSPARENTE / NÃO É SIMULAÇÃO DE KNOCKOUT';
+const knockoutButtons=document.querySelectorAll('[data-knockout]');
+knockoutButtons.forEach(button=>{button.textContent=button.dataset.knockout==='original'?'Original':'Retícula';});
 document.querySelectorAll('[data-knockout]').forEach(button=>button.addEventListener('click',()=>{
   const original=button.dataset.knockout==='original';
-  knockoutImage.src=original?'assets/teste_dtf.png':'assets/sample-separated.png';
-  knockoutImage.alt=original?'Arte original do repositório com fundo preto':'Arte do repositório com a cor preta removida e transparência binária';
+  knockoutImage.src=original?'assets/study-original.png':'assets/study-30-circle.png';
+  knockoutImage.alt=original?'Estudo DTF original com transparência':'Estudo DTF processado com retícula e transparência';
   document.getElementById('knockout-visual').dataset.state=original?'original':'result';
   document.querySelectorAll('[data-knockout]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
 }));
@@ -69,6 +76,18 @@ document.querySelectorAll('[data-choke]').forEach(button=>button.addEventListene
 }));
 
 const screenshotDialog=document.getElementById('screenshot-dialog');
+// Demonstração ilustrativa: não chamar de captura real da interface.
+const flowPreview=document.querySelector('#open-screenshot img');
+flowPreview.src='assets/study-30-circle.png';
+flowPreview.alt='Estudo ilustrativo de retícula do aplicativo ADNY';
+document.getElementById('open-screenshot').setAttribute('aria-label','Ampliar estudo visual de retícula');
+const flowNote=document.querySelector('#open-screenshot + .card-copy .card-note');
+if(flowNote)flowNote.textContent='ESTUDO PROCESSADO PELO MOTOR / DEMONSTRAÇÃO';
+const dialogImage=screenshotDialog.querySelector('img');
+dialogImage.src='assets/study-30-circle.png';
+dialogImage.alt='Estudo ilustrativo ampliado de retícula de 30 LPI';
+document.getElementById('screenshot-title').textContent='ESTUDO VISUAL / RETÍCULA 30 LPI';
+screenshotDialog.querySelector('p').textContent='Imagem demonstrativa processada pelo motor do projeto. Para visualizar a interface real, abra o aplicativo Windows.';
 document.getElementById('open-screenshot').addEventListener('click',()=>screenshotDialog.showModal());
 document.getElementById('close-screenshot').addEventListener('click',()=>screenshotDialog.close());
 screenshotDialog.addEventListener('click',event=>{if(event.target===screenshotDialog){const r=screenshotDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)screenshotDialog.close();}});
