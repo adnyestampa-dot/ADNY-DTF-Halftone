@@ -94,42 +94,7 @@
       "binary_alpha": true
     }
   ],
-  "source_commit": "5c8cd4d76881ddd56c8cb26995cd3df06970cd57",
-  "artwork": "Onça com bandeira do Brasil fornecida pelo usuário; enquadramento integral, sem recorte",
-  "artwork_sha256": "5e22790669baecad93bf89832b0d41c01afa9039e6b7c0035f61e1a420e408dd",
-  "settings": {
-    "lpi": 30.0,
-    "angle": 22.5,
-    "dot_shape": "circle",
-    "halftone_enabled": true,
-    "dpi": 300.0,
-    "knockout": [
-      0,
-      0,
-      0
-    ],
-    "shirt": [
-      0,
-      0,
-      0
-    ],
-    "link_shirt": true,
-    "shirt_preview": false,
-    "mask_threshold": 24,
-    "input_black": 0,
-    "input_white": 255,
-    "gamma": 1.0,
-    "output_black": 0,
-    "output_white": 255,
-    "hue": 0.0,
-    "saturation": 0.0,
-    "lightness": 0.0,
-    "cleanup": 0,
-    "underbase": false,
-    "choke_px": 0,
-    "white_mode": "layer",
-    "dpi_y": null,
-    "dpi_informado": false
-  },
-  "verified_pixel_exact_outputs": 13
+  "source_commit": "0af02d462ec07f39bf2856493b384c0a6621fb19",
+  "verified_pixel_exact_outputs": 13,
+  "desktop_capture": "Interface renderizada executando a revisão conferida; Linux Qt offscreen"
 }
