@@ -19,6 +19,8 @@ jobs:
         with:
           persist-credentials: false
       - name: Testar primeiro download e abertura pelo atalho
+        env:
+          QT_QPA_PLATFORM: windows
         timeout-minutes: 6
         shell: pwsh
         run: |
