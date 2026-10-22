@@ -1,0 +1,100 @@
+{
+  "source": "adnyestampa-dot/ADNY-DTF-Halftone",
+  "angle": 22.5,
+  "dpi": 300,
+  "previews": [
+    {
+      "file": "study-20-circle.png",
+      "lpi": 20,
+      "shape": "circle",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-20-square.png",
+      "lpi": 20,
+      "shape": "square",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-20-line.png",
+      "lpi": 20,
+      "shape": "line",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-30-circle.png",
+      "lpi": 30,
+      "shape": "circle",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-30-square.png",
+      "lpi": 30,
+      "shape": "square",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-30-line.png",
+      "lpi": 30,
+      "shape": "line",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-45-circle.png",
+      "lpi": 45,
+      "shape": "circle",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-45-square.png",
+      "lpi": 45,
+      "shape": "square",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    },
+    {
+      "file": "study-45-line.png",
+      "lpi": 45,
+      "shape": "line",
+      "pixels": [
+        800,
+        1200
+      ],
+      "binary_alpha": true
+    }
+  ],
+  "source_commit": "0af02d462ec07f39bf2856493b384c0a6621fb19",
+  "verified_pixel_exact_outputs": 13,
+  "desktop_capture": "Interface renderizada executando a revisão conferida; Linux Qt offscreen"
+}
