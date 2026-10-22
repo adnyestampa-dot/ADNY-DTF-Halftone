@@ -1,0 +1,44 @@
+name: Validar atalho Windows
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Empacotar ADNY para Windows x64']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  atalho:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Testar primeiro download e abertura pelo atalho
+        timeout-minutes: 6
+        shell: pwsh
+        run: |
+          if (Test-Path 'ADNY-DTF-Halftone.exe') { throw 'O teste exige o primeiro uso sem executavel local' }
+          $destino = Join-Path $PWD 'validacao-atalho'
+          & .\ABRIR-ADNY.bat --smoke-test "$destino"
+          if ($LASTEXITCODE -ne 0) { throw 'O atalho falhou ao baixar o executavel' }
+          $limite = (Get-Date).AddMinutes(2)
+          while (-not (Test-Path "$destino/resultado.json") -and (Get-Date) -lt $limite) {
+            if (Test-Path "$destino/falha.txt") { Get-Content "$destino/falha.txt"; throw 'O aplicativo falhou pelo atalho' }
+            Start-Sleep -Milliseconds 500
+          }
+          if (-not (Test-Path "$destino/resultado.json")) { throw 'O aplicativo nao concluiu o teste pelo atalho' }
+          $resultado = Get-Content "$destino/resultado.json" -Raw | ConvertFrom-Json
+          if (-not $resultado.ok -or -not $resultado.frozen) { throw 'A abertura pelo atalho nao foi validada' }
+          Get-Content "$destino/resultado.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validacao-atalho-windows
+          path: validacao-atalho/
+          if-no-files-found: ignore
+          retention-days: 7
