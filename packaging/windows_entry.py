@@ -12,7 +12,8 @@ if not getattr(sys, "frozen", False):
 
 def validar_executavel(destino: Path) -> int:
     destino.mkdir(parents=True, exist_ok=True)
-    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    if sys.platform != "win32":
+        os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     try:
         import numpy as np
         from PIL import Image
