@@ -1,3 +1,25 @@
+# Auditoria ADNY DTF Halftone — atualização Windows
+
+## Estado atual
+
+Release publicada: `windows-v0.1.3-1`, compilada a partir de `865d7cb610c4bde79f37b5161f4afdbf29cd3bc7`.
+
+- Os 13 testes do motor passaram no Windows.
+- O próprio executável foi aberto com a interface nativa do Windows e validou processamento, PNG, base branca, dimensões, DPI e projeto .dtx.
+- A captura atual `assets/desktop-windows.webp` veio desse executável, com uma imagem sintética de teste. A imagem mede 1028 × 749 pixels.
+- A abertura pelo atalho `ABRIR-ADNY.bat` foi validada em outro ambiente Windows: primeiro download, conferência SHA256, abertura do .exe baixado e teste completo de processamento/exportação.
+- Os downloads do site agora oferecem o .exe e o ZIP portátil com o atalho na raiz. Não exigem instalação de Python.
+- Os dados internos do executável ficam em LOCALAPPDATA, fora da extração temporária do PyInstaller.
+- Não foi realizada prova física de impressão nem teste no computador pessoal do usuário.
+
+Evidência do pacote: https://github.com/adnyestampa-dot/ADNY-DTF-Halftone/actions/runs/39707752095
+
+Evidência do atalho: https://github.com/adnyestampa-dot/ADNY-DTF-Halftone/actions/runs/39707998072
+
+## Histórico da auditoria inicial
+
+O registro abaixo descreve a revisão anterior, antes de existir a release Windows. Suas menções à captura Linux, ao ZIP de código e à ausência de releases se referem àquela etapa. A atualização acima documenta a situação atual.
+
 # Auditoria do site ADNY DTF Halftone
 
 Data: 22/10/2026. Repositório conferido: https://github.com/adnyestampa-dot/ADNY-DTF-Halftone
@@ -60,4 +82,4 @@ A auditoria não permite dizer que o aplicativo inteiro está livre de falhas:
 2. As três verificações de `tests/test_janela.py` chegaram a `OK`, incluindo separação e exportação. Porém, o processo terminou com código 139 no encerramento do ambiente Qt offscreen. Isso impede classificar essa execução gráfica como aprovação integral; não foi demonstrado que o encerramento se comporta da mesma forma no computador do usuário. A captura isolada terminou normalmente. Nenhum motor ou arquivo do aplicativo foi alterado nesta auditoria.
 3. Não foi realizada prova física de impressão, instalação limpa completa em Windows/macOS, nem conferência de cores com RIP/impressora.
 
-A navegação foi feita na prévia do mesmo código do site, em ambiente de teste.
+A navegação foi feita na prévia do mesmo código entregue para hospedagem. A confirmação de implantação privada é fornecida pela hospedagem; a abertura autenticada do endereço privado na sessão pessoal do usuário não foi testada por este navegador.

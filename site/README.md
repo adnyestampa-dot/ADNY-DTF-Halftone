@@ -1,30 +1,34 @@
 # Site ADNY DTF Halftone
 
-Código do site de apresentação do aplicativo ADNY DTF Halftone. HTML, CSS, JavaScript e imagens estão nesta pasta `site/`.
+Site de apresentação do aplicativo desktop. Os arquivos HTML, CSS, JavaScript e imagens estão nesta pasta `site/`.
 
-Para visualizar, abra `site/index.html` no navegador. Para usar um servidor local, execute na raiz do repositório:
+## Download Windows
+
+O download principal oferece o executável Windows x64 e o ZIP portátil da seção Releases. O pacote inclui Python e bibliotecas; o visitante pode abrir o aplicativo sem instalar Python.
+
+A release `windows-v0.1.3-1` foi compilada a partir de `865d7cb610c4bde79f37b5161f4afdbf29cd3bc7`. Foram aprovados os 13 testes do motor e a execução do próprio .exe no Windows: interface nativa, processamento, PNG, base branca, dimensões/DPI e ida e volta do projeto .dtx. A captura `assets/desktop-windows.webp` veio dessa execução real do .exe, com uma imagem sintética de validação.
+
+O atalho `ABRIR-ADNY.bat` está na raiz do repositório e do ZIP portátil. No primeiro uso pela pasta do código, baixa o executável publicado e confere seu SHA256. Esse primeiro uso foi validado separadamente no Windows, incluindo a abertura e o processamento pelo .exe baixado.
+
+As imagens da demonstração são pré-processadas. O site não processa os arquivos do visitante; a edição é feita no aplicativo desktop.
+
+## Visualizar este site
+
+Abra `site/index.html` ou, na raiz do repositório, execute:
 
 ```sh
 python -m http.server 8000 --directory site
 ```
 
-Acesse `http://localhost:8000` no seu computador.
+Acesse `http://localhost:8000` no computador.
 
-Os controles do site exibem exemplos pré-processados. Para editar seus próprios arquivos no aplicativo desktop, instale as dependências a partir da raiz deste repositório:
+## Executar o código do aplicativo
+
+Para quem preferir trabalhar com o código-fonte, na raiz do repositório:
 
 ```sh
 python -m pip install -r requirements.txt
 python -m app.main
 ```
 
-O conteúdo e os exemplos foram conferidos contra a revisão `0af02d462ec07f39bf2856493b384c0a6621fb19`. O download do aplicativo aponta para essa revisão.
-
-Leia [AUDITORIA.md](AUDITORIA.md) para as correções, testes e limitações encontrados. Os testes digitais não substituem uma prova de impressão.
-
-Para regenerar as imagens de demonstração, com as dependências do aplicativo instaladas, execute da raiz do repositório:
-
-```sh
-python site/tools/render-previews.py --app-root . --output site/assets
-```
-
-A imagem `desktop.webp` foi capturada executando a interface da revisão conferida. O script de estudos não a substitui.
+O empacotamento e a release são mantidos em `.github/workflows/windows.yml`. As evidências e limitações estão em [AUDITORIA.md](AUDITORIA.md). Os testes digitais não substituem prova física de impressão.
