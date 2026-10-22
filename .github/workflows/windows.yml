@@ -1,0 +1,72 @@
+name: Empacotar ADNY para Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'requirements.txt'
+      - 'packaging/**'
+      - 'ABRIR-ADNY.bat'
+      - 'LEIA-ME-WINDOWS.md'
+      - '.github/workflows/windows.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: windows-release
+  cancel-in-progress: false
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          architecture: x64
+          cache: pip
+      - name: Instalar dependencias de compilacao
+        run: python -m pip install -r requirements.txt "pyinstaller>=6.16,<7"
+      - name: Testar motores antes de compilar
+        run: python -m unittest discover -s tests -p test_engines.py -v
+      - name: Compilar executavel Windows
+        run: python packaging/build_windows.py
+      - name: Testar o executavel compilado
+        timeout-minutes: 5
+        shell: pwsh
+        run: |
+          $destino = Join-Path $PWD 'validacao-exe'
+          $exe = (Resolve-Path 'dist/ADNY-DTF-Halftone.exe').Path
+          $processo = Start-Process -FilePath $exe -ArgumentList @('--smoke-test', ('"' + $destino + '"')) -PassThru -Wait
+          if ($processo.ExitCode -ne 0) {
+            if (Test-Path "$destino/falha.txt") { Get-Content "$destino/falha.txt" }
+            throw "O executavel terminou com codigo $($processo.ExitCode)"
+          }
+          $resultado = Get-Content "$destino/resultado.json" -Raw | ConvertFrom-Json
+          if (-not $resultado.ok -or -not $resultado.frozen) { throw 'Validacao incompleta do executavel' }
+          Get-Content "$destino/resultado.json"
+      - name: Preparar ZIP portatil e hashes
+        run: python packaging/make_release.py
+      - name: Publicar executavel validado em Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: windows-v0.1.${{ github.run_number }}-${{ github.run_attempt }}
+        shell: pwsh
+        run: |
+          gh release create $env:TAG 'dist/ADNY-DTF-Halftone.exe' 'dist/ADNY-DTF-Halftone.exe.sha256' 'dist/ADNY-DTF-Halftone-Windows-x64.zip' 'dist/SHA256SUMS.txt' 'dist/BUILD.json' --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --title 'ADNY DTF Halftone para Windows x64' --notes-file packaging/release_notes.md --latest
+          if ($LASTEXITCODE -ne 0) { throw 'A publicacao da release falhou' }
+      - name: Guardar evidencias de validacao
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validacao-windows
+          path: validacao-exe/
+          if-no-files-found: ignore
+          retention-days: 7

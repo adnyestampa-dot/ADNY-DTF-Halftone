@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+/build/
+/dist/
+/validacao-exe/
+/ADNY-DTF-Halftone.exe
+/ADNY-DTF-Halftone.exe.sha256
+/*.part
+/*.part.sha256

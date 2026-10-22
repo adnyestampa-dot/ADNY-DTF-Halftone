@@ -30,6 +30,7 @@ from PySide6.QtWidgets import (
 )
 
 from app import NOME
+from app.runtime_paths import raiz_de_dados
 from app.engines.central import MotorCentral
 from app.engines.export_engine import gravar_mascara, gravar_png
 from app.engines.image_engine import Origem, carregar, polegadas_para_px, px_para_unidade, recortar, redimensionar
@@ -40,7 +41,7 @@ from app.ui.canvas import Tela
 from app.ui.theme import CLARO, ESCURO
 from app.ui.widgets import FaixaColorida, FaixaLevels, LinhaControle, Secao
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = raiz_de_dados()
 
 
 class _Trabalhador(QThread):
