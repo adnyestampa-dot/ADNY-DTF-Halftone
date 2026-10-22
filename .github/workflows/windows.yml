@@ -1,4 +1,4 @@
-name: Empacotar ADNY para Windows
+name: Empacotar ADNY para Windows x64
 
 on:
   workflow_dispatch:
